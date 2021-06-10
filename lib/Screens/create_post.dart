@@ -53,55 +53,89 @@ class _CreatePostState extends State<CreatePost> {
                 ),
               ),
             ),
-            ListTile(
-              horizontalTitleGap: 5.0,
-              leading: CircleAvatar(
-                radius: 30,
-                backgroundColor: Colors.white,
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('images/ex.jpg'),
-                  radius: 28,
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0),
+              child: ListTile(
+                horizontalTitleGap: 5.0,
+                leading: CircleAvatar(
+                  radius: 30,
+                  backgroundColor: Colors.white,
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage('images/ex.jpg'),
+                    radius: 28,
+                  ),
                 ),
-              ),
-              title: SizedBox(
-                child: Text(
-                  "Ibrahim",
-                  style: TextStyle(
-                      color: const Color(0xff000000),
-                      fontWeight: FontWeight.w700,
-                      fontFamily: "Helvetica",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 15.0),
+                title: SizedBox(
+                  child: Text(
+                    "Ibrahim",
+                    style: TextStyle(
+                        color: const Color(0xff000000),
+                        fontWeight: FontWeight.w700,
+                        fontFamily: "Helvetica",
+                        fontStyle: FontStyle.normal,
+                        fontSize: 15.0),
+                  ),
                 ),
-              ),
-              subtitle: DropdownButtonHideUnderline(
-                child: ButtonTheme(
-                  minWidth: 50.0,
-                  height: 200.0,
-                  alignedDropdown: true,
-                  child: DropdownButton(
-                      
-                      isDense: true,
-                      value: _value,
-                      items: [
-                        DropdownMenuItem(
-                          child: Text("Public"),
-                          value: 1,
-                        ),
-                        DropdownMenuItem(
-                          child: Text("Friends only"),
-                          value: 2,
-                        ),
-                        DropdownMenuItem(child: Text('Me only'), value: 3),
-                      ],
-                      onChanged: (value) {
-                        setState(() {
-                          _value = value;
-                        });
-                      }),
-                ),
+                subtitle: DropdownButton(
+                    underline: SizedBox(),
+                    isDense: true,
+                    value: _value,
+                    items: [
+                      DropdownMenuItem(
+                        child: Text("Public"),
+                        value: 1,
+                      ),
+                      DropdownMenuItem(
+                        child: Text("Friends"),
+                        value: 2,
+                      ),
+                      DropdownMenuItem(child: Text('Me only'), value: 3),
+                    ],
+                    onChanged: (value) {
+                      setState(() {
+                        _value = value;
+                      });
+                    }),
               ),
             ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height / 3,
+                    child: TextField(
+                      textInputAction: TextInputAction.newline,
+                      keyboardType: TextInputType.multiline,
+                      minLines: null,
+                      maxLines: null,
+                      expands: true,
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'What’s going on?'),
+                    ),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30.0),
+                      topRight: Radius.circular(30.0),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Color(0x1a000000),
+                          offset: Offset(15, 15),
+                          blurRadius: 30,
+                          spreadRadius: 0)
+                    ],
+                    color: Color(0xffffffff),
+                  ),
+                  height: 280,
+                )
+              ],
+            )
           ],
         ),
       ),
