@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
-
 import 'package:frida/constants.dart';
 import 'package:frida/themes/colors.dart';
+import 'package:frida/Model/tweet.dart';
 import 'package:frida/Widgets/actionButtom.dart';
 
-class FeedScreen extends StatelessWidget {
-  const FeedScreen({Key key}) : super(key: key);
+class FeedScreen extends StatefulWidget {
+  final List<Tweet> tweet = <Tweet>[
+    Tweet(
+      imageContent: 'images/ex.jpg',
+      messageContent:
+          'Just for good measure while I’m going through the @goalbal process here another great lesson in user friendly from validation #megel massage',
+      profilePicture: 'dboy.jpg',
+      time: '30',
+      userName: 'umarrg',
+    ),
+  ];
+  @override
+  _FeedScreenState createState() => _FeedScreenState();
+}
 
+class _FeedScreenState extends State<FeedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +62,7 @@ class FeedScreen extends StatelessWidget {
               ),
               Container(
                 color: Fcolors.lightColor,
-                height: MediaQuery.of(context).size.height / 5 + 5,
+                height: MediaQuery.of(context).size.height / 5,
                 child: ListView(
                   physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
@@ -99,7 +112,7 @@ class FollowCard extends StatelessWidget {
                 ),
                 Text("Ibrahim", style: followCardNameStyle),
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 10.0),
+                  margin: EdgeInsets.symmetric(vertical: 5.0),
                   child: Center(
                     child: Text(
                       'Follow',
@@ -107,7 +120,7 @@ class FollowCard extends StatelessWidget {
                     ),
                   ),
                   width: 72.5,
-                  height: 20,
+                  height: 15,
                   decoration: followCardContainerDecoration,
                 ),
               ],
@@ -213,19 +226,17 @@ class Tweets extends StatelessWidget {
                             ),
                             ActionButtom(
                               icon: Icon(
-                                Icons.sync_alt_outlined,
+                                Icons.repeat,
                                 color: Fcolors.lightColor,
                               ),
                               nums: '15',
-                              
                             ),
                             ActionButtom(
                               icon: Icon(
-                                Icons.message,
+                                Icons.favorite_border,
                                 color: Fcolors.lightColor,
                               ),
                               nums: '1000',
-                           
                             ),
                             ActionButtom(
                               icon: Icon(
@@ -233,7 +244,90 @@ class Tweets extends StatelessWidget {
                                 color: Fcolors.lightColor,
                               ),
                               nums: '',
-                              
+                              iconAction: () {
+                                showModalBottomSheet(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(30.0),
+                                          topLeft: Radius.circular(30.0)),
+                                    ),
+                                    context: context,
+                                    builder: (context) {
+                                      return Column(
+                                        children: [
+                                          Center(
+                                            child: Padding(
+                                              padding: EdgeInsets.all(15.0),
+                                              child: Container(
+                                                  width: 45.5,
+                                                  height: 3,
+                                                  decoration: BoxDecoration(
+                                                      color:
+                                                          Color(0xffc7c7c7))),
+                                            ),
+                                          ),
+                                          Center(
+                                            child: Padding(
+                                              padding:
+                                                  EdgeInsets.only(bottom: 15.0),
+                                              child: Text(
+                                                "Share Frida",
+                                                style: TextStyle(
+                                                    color: Color(0xff000000),
+                                                    fontWeight: FontWeight.w700,
+                                                    fontFamily: "Helvetica",
+                                                    fontStyle: FontStyle.normal,
+                                                    fontSize: 15.0),
+                                              ),
+                                            ),
+                                          ),
+                                          Container(
+                                            width: 359.75,
+                                            height: 0.5,
+                                            decoration: BoxDecoration(
+                                              color: Color(0xffc7c7c7),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.all(15.0),
+                                            child: Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.message,
+                                                  color: Fcolors.darkColor,
+                                                ),
+                                                SizedBox(
+                                                  width: 10.0,
+                                                ),
+                                                Text('Send Direct Message'),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            width: 359.75,
+                                            height: 0.5,
+                                            decoration: BoxDecoration(
+                                              color: const Color(0xffc7c7c7),
+                                            ),
+                                          ),
+                                          Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Column(
+                                                    children: [
+                                                      Icon(Icons.message),
+                                                      Text('Message')
+                                                    ],
+                                                  )
+                                                ],
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      );
+                                    });
+                              },
                             ),
                           ],
                         ),
