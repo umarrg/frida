@@ -144,16 +144,34 @@ const followCardNameStyle = TextStyle(
     fontWeight: FontWeight.w400,
     fontFamily: "Helvetica",
     fontStyle: FontStyle.normal,
-    fontSize: 13.0);
+    fontSize: 10.0);
 
 const followCardButtomTextStyle = TextStyle(
     color: Color(0xffffffff),
     fontWeight: FontWeight.w700,
     fontFamily: "Helvetica",
     fontStyle: FontStyle.normal,
-    fontSize: 10.0);
+    fontSize: 11.0);
 
 const followCardContainerDecoration = BoxDecoration(
   borderRadius: BorderRadius.all(Radius.circular(20)),
   color: const Color(0xff37377f),
 );
+
+const kAccountMayFollowTextStyle = const TextStyle(
+    color: const Color(0xff626262),
+    fontWeight: FontWeight.w400,
+    fontFamily: "Helvetica",
+    fontStyle: FontStyle.normal,
+    fontSize: 14.0);
+
+    const kFollowContainerDecoration =  BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            boxShadow: [
+              BoxShadow(
+                  color: const Color(0x29000000),
+                  offset: Offset(0, 15),
+                  blurRadius: 30,
+                  spreadRadius: 0),
+            ],
+            color: const Color(0xffffffff));

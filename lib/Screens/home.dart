@@ -1,5 +1,5 @@
-import 'package:frida/Screens/chat.dart';
-import 'package:frida/Screens/feedS.dart';
+import 'package:frida/Screens/chat/chat.dart';
+import 'package:frida/Screens/Feeds/feedS.dart';
 import 'package:frida/Screens/notification.dart';
 import 'package:frida/Screens/profile.dart';
 import 'package:frida/Screens/search.dart';
@@ -55,14 +55,17 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: '',
+            tooltip: 'Home'
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: '',
+             tooltip: 'Search'
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.message),
             label: '',
+            tooltip: 'Messages'
           ),
           BottomNavigationBarItem(
             icon: Badge(
@@ -73,10 +76,12 @@ class _HomeState extends State<Home> {
               child: Icon(Icons.notifications),
             ),
             label: '',
+            tooltip: 'Notifications'
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
             label: '',
+            tooltip: 'Profile'
           ),
         ],
       ),
