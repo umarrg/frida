@@ -12,7 +12,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,7 +115,8 @@ class _LoginState extends State<Login> {
                                   child: Center(
                                     child: GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context).pushNamed(Home.id);
+                                        Navigator.of(context)
+                                            .pushNamed(Home.id);
                                       },
                                       child: Text("Login",
                                           style: KloginButtomText,

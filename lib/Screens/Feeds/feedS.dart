@@ -42,7 +42,7 @@ class _FeedScreenState extends State<FeedScreen> {
       image: 'images/ex.jpg',
       name: 'abba abubakar',
     ),
-     Follow(
+    Follow(
       image: 'images/ex.jpg',
       name: 'usama hussain',
     ),
@@ -50,7 +50,7 @@ class _FeedScreenState extends State<FeedScreen> {
       image: 'images/ex.jpg',
       name: 'abba abubakar',
     ),
-     Follow(
+    Follow(
       image: 'images/ex.jpg',
       name: 'usama hussain',
     ),
@@ -61,36 +61,35 @@ class _FeedScreenState extends State<FeedScreen> {
   ];
   final List<Tweet> tweet = [
     Tweet(
-      imageContent: 'images/ex.jpg',
+      imageContent: 'images/mrs.jpg',
       messageContent:
-          'Just for good measure while I’m going through the @goalbal process here another great lesson in user friendly from validation #megel massage',
-      profilePicture: 'images/dboy.jpg',
+          'I am glad to be part of this important and historical occasion of commissioning of Creche established by the Planning and Budget Commission. The Commission has set the pace for other Ministries',
+      profilePicture: 'images/baby.jpg',
       time: '30',
-      userName: 'umarrg',
+      userName: 'Aisha Ummi',
     ),
     Tweet(
-      imageContent: 'images/ex.jpg',
+      imageContent: 'images/woman1.jpg',
       messageContent:
           'Just for good measure while I’m going through the @goalbal process here another great lesson in user friendly from validation #megel massage',
-      profilePicture: 'images/dboy.jpg',
-      time: '30',
-      userName: 'umarrg',
+      profilePicture: 'images/woman2.webp',
+      time: '15',
+      userName: 'Hafsat Balarabe',
     ),
     Tweet(
-      imageContent: 'images/ex.jpg',
+      imageContent: 'images/elrufai.jpg',
       messageContent:
           'Just for good measure while I’m going through the @goalbal process here another great lesson in user friendly from validation #megel massage',
-      profilePicture: 'images/dboy.jpg',
-      time: '30',
-      userName: 'umarrg',
+      profilePicture: 'images/ex.jpg',
+      time: '12',
+      userName: 'Mickel oche',
     ),
     Tweet(
-      imageContent: 'images/ex.jpg',
-      messageContent:
-          'Just for good measure while I’m going through the @goalbal process here another great lesson in user friendly from validation #megel massage',
-      profilePicture: 'images/dboy.jpg',
-      time: '30',
-      userName: 'umarrg',
+      imageContent: 'images/abba2.jpg',
+      messageContent: 'Life is not an option so why not live life 🤩',
+      profilePicture: 'images/abba1.jpeg',
+      time: '9',
+      userName: 'Abba Abubakar',
     ),
   ];
   @override
@@ -144,7 +143,6 @@ class _FeedScreenState extends State<FeedScreen> {
                   itemCount: follow.length,
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
-                
                   itemBuilder: (context, index) {
                     return FollowCard(
                       name: follow[index].name,
@@ -152,6 +150,21 @@ class _FeedScreenState extends State<FeedScreen> {
                     );
                   },
                 ),
+              ),
+              ListView.builder(
+                itemCount: tweet.length,
+                shrinkWrap: true,
+                padding: EdgeInsets.only(top: 16),
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return Tweets(
+                    username: tweet[index].userName,
+                    profilePicture: tweet[index].profilePicture,
+                    time: tweet[index].time,
+                    messageContent: tweet[index].messageContent,
+                    imageContent: tweet[index].imageContent,
+                  );
+                },
               ),
             ],
           ),
